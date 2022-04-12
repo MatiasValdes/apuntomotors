@@ -20,4 +20,4 @@ const carOptionValueSchema = new mongoose.Schema(
     { timestamp: true }
 );
 
-module.exports = mongoose.module("carOptionValue", carOptionValueSchema);
+module.exports = mongoose.model("carOptionValue", carOptionValueSchema);

@@ -21,4 +21,4 @@ const carOptionSchema = new mongoose.Schema(
     { timestamp: true }
 );
 
-module.exports = mongoose.module("carOption", carOptionSchema);
+module.exports = mongoose.model("carOption", carOptionSchema);

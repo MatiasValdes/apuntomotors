@@ -23,4 +23,4 @@ const carGenerationSchema = new mongoose.Schema(
     { timestamp: true }
 );
 
-module.exports = mongoose.module("carGeneration", carGenerationSchema);
+module.exports = mongoose.model("carGeneration", carGenerationSchema);

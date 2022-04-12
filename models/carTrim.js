@@ -27,4 +27,4 @@ const carTrimSchema = new mongoose.Schema(
     { timestamp: true }
 );
 
-module.exports = mongoose.module("carTrim", carTrimSchema);
+module.exports = mongoose.model("carTrim", carTrimSchema);

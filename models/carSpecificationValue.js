@@ -27,4 +27,4 @@ const carSpecificationValueSchema = new mongoose.Schema(
     { timestamp: true }
 );
 
-module.exports = mogoose.modulo("carSpecificationValue", carSpecificationValueSchema);
+module.exports = mogoose.model("carSpecificationValue", carSpecificationValueSchema);
