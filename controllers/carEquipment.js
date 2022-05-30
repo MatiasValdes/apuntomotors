@@ -1,0 +1,97 @@
+const carEquipment = require("../models/carEquipment")
+const slugify = require("slugify")
+
+exports.create = async (req, res) => {
+    try {
+        const { name, year, carTrim, cartype } = req.body
+        res.json(await new carEquipment({ name, slug: slugify(name), year, carTrim, carType }).save())
+    }
+    catch (err) {
+        res.status(400).send("Car Equipment created failed")
+    }
+}
+
+exports.read = async (req, res) => {
+    const CarEquipment = await carEquipment.findOne({
+        slug: req.params.slug,
+        status: "Active"
+    }).exec()
+    res.json(CarEquiment)
+}
+
+exports.update = async (req, res) => {
+    try {
+        if (req.body.name) {
+            req.body.slug = slugify(req.body.name)
+        }
+        const updated = await carEquipment.findOneAndUpdate(
+            { slug: req.params.slug },
+            req.body,
+            { new: true }
+        ).exec()
+        res.json(updated)
+    }
+    catch (err) {
+        res.status(400).send("Car Equipement updated failed")
+    }
+}
+
+exports.remove = async (req, res) => {
+    try {
+        const deleted = await carEquipment.findOneAndDelete(
+            { slug: req.params.slug }
+        ).exec()
+        res.json(deleted)
+    }
+    catch (err) {
+        res.status(400).send("Car Equipment deleted failed")
+    }
+}
+
+exports.removeSoft = async (req, res) => {
+    try {
+        const deleted = await carEquipment.findOneAndUpdate(
+            { slug: req.params.slug },
+            { status: "Inactive" },
+            { new: true }
+        ).exec()
+        res.json(deleted)
+    }
+    catch (err) {
+        res.status(400).send("Car Equipment deleted failed")
+    }
+}
+
+exports.count = async (req, res) => {
+    let total = await carEquipment.find({ status: "Active" })
+        .estimatedDocumentCount()
+        .exec()
+    res.json(total)
+}
+
+exports.pagination = async (req, res) => {
+    try {
+        const { sort, order, page } = req.body
+        const currentPage = page | 1
+        const perPage = 6
+
+        const CarEquipment = await carEquipment.find({ status: "Active" })
+            .skip((currentPage - 1) * perPage)
+            .sort([[sort, order]])
+            .limit(perPage)
+            .exec()
+
+        res.json(CarEquipment)
+    }
+    catch (err) {
+        res.status(400).send("Car Equipment pagination failed")
+    }
+}
+
+exports.list = async (req, res) => {
+    let carEquipments = await carEquipment.find({ status: "Active" })
+        .limit(parseInt(req.params.count))
+        .sort([["createAt", "desc"]])
+        .exec()
+    res.json(carEquipments)
+}

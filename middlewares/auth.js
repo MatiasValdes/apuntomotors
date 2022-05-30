@@ -1,5 +1,5 @@
 const admin = require("../firebase")
-const user = require("../models/user")
+const User = require("../models/user")
 
 exports.authCheck = async (req, res, next) => {
     try {
@@ -15,12 +15,38 @@ exports.authCheck = async (req, res, next) => {
 }
 
 exports.adminCheck = async (req, res, next) => {
+    const { email } = req.body
+    const adminUser = await User.find({ email: email }).exec()
+
+    if (adminUser.role !== "Admin") {
+        res.status(403).json({
+            err: "Admin resource. Access denied."
+        })
+    } else {
+        next()
+    }
+}
+
+exports.employeeCheck = async (req, res, next) => {
     const { email } = req.User
     const adminUser = await User.find({ email: email }).exec()
 
-    if (adminUser.role !== "admin") {
+    if (adminUser.role !== "Employee") {
         res.status(403).json({
             err: "Admin resource. Access denied."
+        })
+    } else {
+        next()
+    }
+}
+
+exports.actionsCheck = async (req, res, next) => {
+    const { email } = req.User
+    const adminUser = await User.find({ email: email }).exec()
+
+    if (adminUser.role !== "Employee" || adminUser.role !== "Admin") {
+        res.status(403).json({
+            err: "Access denied."
         })
     } else {
         next()

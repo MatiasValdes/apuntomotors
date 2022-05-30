@@ -1,0 +1,38 @@
+{
+  "definition": {
+      "openapi": "3.0.0",
+      "info": {
+          "title": "APPuntoMotor API",
+          "version": "1.0.0",
+          "description": "API de APPuntoMotor",
+          "termsOfService": "http://example.com/terms/",
+          "contact": {
+              "name": "API Support",
+              "url": "https://mvaldes.com",
+              "email": "matvaldesg@gmail.com"
+          }
+      },
+      "servers": [
+          {
+              "url": "https://server-libros-node.herokuapp.com/api",
+              "description": "My API Documentation in Production"
+          },
+          {
+              "url": "http://localhost:8777/api",
+              "description": "My API Documentation"
+          }
+      ],
+      "security": [{ "ApiKey": [] }],
+      "components": {
+          "securitySchemes": {
+              "ApiKey": {
+                  "type": "apiKey",
+                  "in": "header",
+                  "name": "authtoken"
+              }
+          }
+      }
+  
+  },
+  "apis": ["./routes/*.js"]
+}

@@ -1,13 +1,19 @@
-const mongoose = require("mongoose");
-const { ObjectId } = require("mongoose");
+const mongoose = require("mongoose")
+const { ObjectId } = mongoose.Schema
 
 const carSpecificationSchema = new mongoose.Schema(
     {
         name: {
             type: String,
-            required: true,
+            required: "Name is required",
             trim: true,
-            maxlegth: 32,
+            maxlength: 100,
+        },
+        slug: {
+            type: String,
+            unique: true,
+            lowercase: true,
+            index: true,
         },
         parent: {
             type: ObjectId,
@@ -15,10 +21,16 @@ const carSpecificationSchema = new mongoose.Schema(
         },
         carType: {
             type: ObjectId,
+            required: "Type is required",
             ref: "carType",
+        },
+        status: {
+            type: String,
+            default: "Active",
+            enum: ["Active", "Inactive"],
         },
     },
     { timestamp: true }
-);
+)
 
-module.exports = mongoose.model("carSpecification", carSpecificationSchema);
+module.exports = mongoose.model("carSpecification", carSpecificationSchema)

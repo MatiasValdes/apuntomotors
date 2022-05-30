@@ -12,8 +12,11 @@ exports.create = async (req, res) => {
 }
 
 exports.read = async (req, res) => {
-    const carMake = await carMake.findOne({ slug: req.params.slug, status: "Active" }).exec()
-    res.json(carMake)
+    const CarMake = await carMake.findOne({
+        slug: req.params.slug,
+        status: "Active"
+    }).exec()
+    res.json(CarMake)
 }
 
 exports.update = async (req, res) => {
@@ -35,8 +38,8 @@ exports.update = async (req, res) => {
 
 exports.remove = async (req, res) => {
     try {
-        const deleted = await carMake.findOneAndDelete({ slug: req.params.slug });
-        res.json(deleted);
+        const deleted = await carMake.findOneAndDelete({ slug: req.params.slug })
+        res.json(deleted)
     }
     catch (err) {
         return res.status(400).send("Car Make deleted failed")
@@ -70,15 +73,23 @@ exports.pagination = async (req, res) => {
         const currentPage = page | 1
         const perPage = 6
 
-        const carMake = await carMake.find({ status: "Active" })
+        const CarMake = await carMake.find({ status: "Active" })
             .skip((currentPage - 1) * perPage)
             .sort([[sort, order]])
             .limit(perPage)
             .exec()
 
-        res.json(carMake)
+        res.json(CarMake)
     }
     catch (err) {
-        res.json(400).send("Car Make pagination falied")
+        res.status(400).send("Car Make pagination failed")
     }
+}
+
+exports.list = async (req, res) => {
+    let carMakes = await carMake.find({ status: "Active" })
+        .limit(parseInt(req.params.count))
+        .sort([["createAt", "desc"]])
+        .exec()
+    res.json(carMakes)
 }

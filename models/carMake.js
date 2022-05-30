@@ -5,9 +5,9 @@ const carMakeSchema = new mongoose.Schema(
     {
         name: {
             type: String,
-            required: true,
+            required: "Name is required",
             trim: true,
-            maxlegth: 32
+            maxlength: 32
         },
         slug: {
             type: String,
@@ -22,6 +22,7 @@ const carMakeSchema = new mongoose.Schema(
         },
         cartype: {
             type: ObjectId,
+            required: "Type is required",
             ref: "carType"
         },
     },

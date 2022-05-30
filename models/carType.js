@@ -1,4 +1,4 @@
-const mongoose = require("mongoose");
+const mongoose = require("mongoose")
 
 const carTypeSChema = new mongoose.Schema(
     {
@@ -6,8 +6,7 @@ const carTypeSChema = new mongoose.Schema(
             type: String,
             trim: true,
             required: "Name is required",
-            minlength: [2, "Too short"],
-            maxlength: [32, "Too long"]
+            maxlength: 32
         },
         slug: {
             type: String,
@@ -22,6 +21,6 @@ const carTypeSChema = new mongoose.Schema(
         },
     },
     { timestamps: true }
-);
+)
 
-module.exports = mongoose.model("carType", carTypeSChema);
+module.exports = mongoose.model("carType", carTypeSChema)

@@ -1,30 +1,41 @@
-const mongoose = require("mongoose");
-const { ObjectId } = require("mongoose");
+const mongoose = require("mongoose")
+const { ObjectId } = require("mongoose")
 
 const carSpecificationValueSchema = new mongoose.Schema(
     {
-        value: {
-            type: String,
-            required: true,
-            trim: true,
-            maxlegth: 32,
-        },
-        unit: {
-            type: String,
-            required: true,
-            trim: true,
-            maxlegth: 32,
-        },
-        carType: {
+        carTrim: {
             type: ObjectId,
-            ref: "carType",
+            required: "Trim is required",
+            ref: "carTrim"
         },
         carSpecification: {
             type: ObjectId,
+            required: "Specification is required",
             ref: "carSpecification"
+        },
+        value: {
+            type: String,
+            required: "Value is required",
+            trim: true,
+            maxlength: 100,
+        },
+        unit: {
+            type: String,
+            trim: true,
+            maxlength: 10,
+        },
+        carType: {
+            type: ObjectId,
+            required: "Type is required",
+            ref: "carType",
+        },
+        status: {
+            type: String,
+            default: "Active",
+            enum: ["Active", "Inactive"],
         },
     },
     { timestamp: true }
-);
+)
 
-module.exports = mogoose.model("carSpecificationValue", carSpecificationValueSchema);
+module.exports = mongoose.model("carSpecificationValue", carSpecificationValueSchema)

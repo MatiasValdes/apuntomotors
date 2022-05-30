@@ -11,12 +11,6 @@ exports.create = async (req, res) => {
     }
 }
 
-exports.list = async (req, res) => {
-    res.json(
-        await carType.find({ status: "Active" }).sort({ createAt: "desc" }).exec()
-    )
-}
-
 exports.read = async (req, res) => {
     let read = await carType.findOne({ slug: req.params.slug, status: "Active" }).exec()
     res.json(read)
@@ -59,4 +53,31 @@ exports.remove = async (req, res) => {
     catch (err) {
         res.status(400).send("Car Type delete failed")
     }
+}
+
+exports.pagination = async (req, res) => {
+    try {
+        const { sort, order, page } = req.body
+        const currentPage = page | 1
+        const perPage = 6
+
+        const carTypes = await carType.find({ status: "Active" })
+            .skip((currentPage - 1) * perPage)
+            .sort([[sort, order]])
+            .limit(perPage)
+            .exec()
+
+        res.json(carTypes)
+    }
+    catch (err) {
+        res.status(400).send("Car Type pagination failed")
+    }
+}
+
+exports.list = async (req, res) => {
+    let carTypes = await carType.find({ status: "Active" })
+        .limit(parseInt(req.params.count))
+        .sort([["createAt", "desc"]])
+        .exec()
+    res.json(carTypes)
 }
