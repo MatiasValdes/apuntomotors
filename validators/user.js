@@ -56,9 +56,9 @@ const validateCreateUser = [
 ]
 
 const validateUpdateUser = [
-    param("slug")
+    param("email")
         .isLowercase()
-        .withMessage("Slug should be pass in lowercase"),
+        .withMessage("Email should be pass in lowercase"),
 
     check("name")
         .exists()
