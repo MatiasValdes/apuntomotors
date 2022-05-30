@@ -12,7 +12,7 @@ const app = express()
 
 connectDB()
 
-app.use(morgan("dev"))
+// app.use(morgan("dev"))
 app.use(express.json({ limit: "2mb" }))
 
 const swaggerDocs = swaggerJsdoc(swaggerConfig);
