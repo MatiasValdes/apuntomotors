@@ -1,7 +1,7 @@
 const User = require("../models/user")
 
 exports.createOrUpdateUser = async (req, res) => {
-    const { name, rut, email, phone, address, comuna, role } = req.body
+    const { name, rut, email, phone, address, comuna, role } = req.user
 
     const user = await User.findOneAndUpdate(
         { email },
