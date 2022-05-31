@@ -15,8 +15,8 @@ exports.authCheck = async (req, res, next) => {
 }
 
 exports.adminCheck = async (req, res, next) => {
-    const { email } = req.body
-    const adminUser = await User.find({ email: email }).exec()
+    const { email } = req.user
+    const adminUser = await User.findOne({ email: email }).exec()
 
     if (adminUser.role !== "Admin") {
         res.status(403).json({
@@ -28,8 +28,8 @@ exports.adminCheck = async (req, res, next) => {
 }
 
 exports.employeeCheck = async (req, res, next) => {
-    const { email } = req.User
-    const adminUser = await User.find({ email: email }).exec()
+    const { email } = req.user
+    const adminUser = await User.findOne({ email: email }).exec()
 
     if (adminUser.role !== "Employee") {
         res.status(403).json({
@@ -41,10 +41,10 @@ exports.employeeCheck = async (req, res, next) => {
 }
 
 exports.actionsCheck = async (req, res, next) => {
-    const { email } = req.User
-    const adminUser = await User.find({ email: email }).exec()
+    const { email } = req.user
+    const users = await User.findOne({ email: email }).exec()
 
-    if (adminUser.role !== "Employee" || adminUser.role !== "Admin") {
+    if (users.role !== "Employee" && users.role !== "Admin") {
         res.status(403).json({
             err: "Access denied."
         })
