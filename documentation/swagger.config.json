@@ -14,12 +14,12 @@
         },
         "servers": [
             {
-                "url": "http://localhost:8777/api",
-                "description": "My API Documentation"
-            },
-            {
                 "url": "https://server-appuntomotors.herokuapp.com/api",
                 "description": "My API Documentation in Production"
+            },
+            {
+                "url": "http://localhost:8777/api",
+                "description": "My API Documentation"
             }
         ],
         "security": [
