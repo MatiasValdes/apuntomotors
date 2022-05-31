@@ -56,6 +56,9 @@ router.post("/create-or-update-user", authCheck, createOrUpdateUser)
  *     produces:
  *         - "application/json"
  *     parameters:
+ *       - name: authtoken
+ *         in: header
+ *         description: an authorization token JWT-ouath2
  *       - name: email
  *         in: header
  *         description: user email 
@@ -86,6 +89,9 @@ router.post("/current-user", authCheck, currentUser)
  *     produces:
  *         - "application/json"
  *     parameters:
+ *       - name: authtoken
+ *         in: header
+ *         description: an authorization token JWT-ouath2
  *       - name: email
  *         in: header
  *         description: Admin user email 
