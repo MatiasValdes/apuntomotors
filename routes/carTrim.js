@@ -23,6 +23,10 @@ const {
  *     summary:  Create trim
  *     tags:
  *      - Trim
+ *     parameters:
+ *       - name: authtoken
+ *         in: header
+ *         description: an authorization token JWT-ouath2
  *     requestBody:
  *       required: true
  *       content: 
@@ -49,6 +53,9 @@ router.post("/trim", authCheck, actionsCheck, validateCreateTrim, create)
  *      - Trim
  *     summary: "Show data trim"
  *     parameters:
+ *       - name: authtoken
+ *         in: header
+ *         description: an authorization token JWT-ouath2
  *       - name: "id"
  *         in: "path"
  *         description: "Show data trim active"
@@ -68,6 +75,9 @@ router.get("/trim/:id", authCheck, read)
  *      - Trim
  *     summary: "Updated data trim"
  *     parameters:
+ *       - name: authtoken
+ *         in: header
+ *         description: an authorization token JWT-ouath2
  *       - name: "id"
  *         in: "path"
  *         description: "Updated data trim"
@@ -93,6 +103,9 @@ router.put("/trim/:id", authCheck, actionsCheck, validateUpdateTrim, update)
  *      - Trim
  *     summary: "Deleted data trim"
  *     parameters:
+ *       - name: authtoken
+ *         in: header
+ *         description: an authorization token JWT-ouath2
  *       - name: "id"
  *         in: "path"
  *         description: "Deleted data trim"
@@ -112,6 +125,9 @@ router.delete("trim/:id", authCheck, adminCheck, remove)
  *      - Trim
  *     summary: "Soft deleted data trim"
  *     parameters:
+ *       - name: authtoken
+ *         in: header
+ *         description: an authorization token JWT-ouath2
  *       - name: "id"
  *         in: "path"
  *         description: "Soft deleted data trim"
@@ -129,6 +145,10 @@ router.patch("/trim/:id", authCheck, actionsCheck, removeSoft)
  *   get:
  *     tags:
  *      - Trim
+ *     parameters:
+ *       - name: authtoken
+ *         in: header
+ *         description: an authorization token JWT-ouath2
  *     summary: "Get total number trims"
  *     responses:
  *       200: 
@@ -143,6 +163,10 @@ router.get("/trims/total", authCheck, count)
  *     summary:  Show data trims paginated
  *     tags:
  *      - Trim
+ *     parameters:
+ *       - name: authtoken
+ *         in: header
+ *         description: an authorization token JWT-ouath2
  *     requestBody:
  *       required: true
  *       content: 
@@ -169,6 +193,9 @@ router.post("/trims", authCheck, pagination)
  *      - Trim
  *     summary: "Show list trims"
  *     parameters:
+ *       - name: authtoken
+ *         in: header
+ *         description: an authorization token JWT-ouath2
  *       - name: "count"
  *         in: "path"
  *         description: "Show list trims"

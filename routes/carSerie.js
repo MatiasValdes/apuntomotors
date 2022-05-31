@@ -23,6 +23,10 @@ const {
  *     summary:  Create serie
  *     tags:
  *       - Serie
+ *     parameters:
+ *       - name: authtoken
+ *         in: header
+ *         description: an authorization token JWT-ouath2
  *     requestBody:
  *       required: true
  *       content: 
@@ -49,6 +53,9 @@ router.post("/serie", authCheck, actionsCheck, validateCreateSerie, create)
  *       - Serie
  *     summary: "Show data serie"
  *     parameters:
+ *       - name: authtoken
+ *         in: header
+ *         description: an authorization token JWT-ouath2
  *       - name: "id"
  *         in: "path"
  *         description: "Show data serie active"
@@ -68,6 +75,9 @@ router.get("/serie/:id", authCheck, read)
  *       - Serie
  *     summary: "Updated data serie"
  *     parameters:
+ *       - name: authtoken
+ *         in: header
+ *         description: an authorization token JWT-ouath2
  *       - name: "id"
  *         in: "path"
  *         description: "Updated data serie"
@@ -93,6 +103,9 @@ router.put("/serie/:id", authCheck, actionsCheck, validateUpdateSerie, update)
  *       - Serie
  *     summary: "Deleted data serie"
  *     parameters:
+ *       - name: authtoken
+ *         in: header
+ *         description: an authorization token JWT-ouath2
  *       - name: "id"
  *         in: "path"
  *         description: "Deleted data serie"
@@ -112,6 +125,9 @@ router.delete("serie/:id", authCheck, adminCheck, remove)
  *       - Serie
  *     summary: "Soft deleted data serie"
  *     parameters:
+ *       - name: authtoken
+ *         in: header
+ *         description: an authorization token JWT-ouath2
  *       - name: "id"
  *         in: "path"
  *         description: "Soft deleted data serie"
@@ -129,6 +145,10 @@ router.patch("/serie/:id", authCheck, actionsCheck, removeSoft)
  *   get:
  *     tags:
  *       - Serie
+ *     parameters:
+ *       - name: authtoken
+ *         in: header
+ *         description: an authorization token JWT-ouath2
  *     summary: "Get total number series"
  *     responses:
  *       200: 
@@ -143,6 +163,10 @@ router.get("/series/total", authCheck, count)
  *     summary:  Show data series paginated
  *     tags:
  *       - Serie
+ *     parameters:
+ *       - name: authtoken
+ *         in: header
+ *         description: an authorization token JWT-ouath2
  *     requestBody:
  *       required: true
  *       content: 
@@ -169,6 +193,9 @@ router.post("/series", authCheck, pagination)
  *       - Serie
  *     summary: "Show list series"
  *     parameters:
+ *       - name: authtoken
+ *         in: header
+ *         description: an authorization token JWT-ouath2
  *       - name: "count"
  *         in: "path"
  *         description: "Show list series"

@@ -23,6 +23,12 @@ const { createOrUpdateUser, currentUser } = require("../controllers/auth")
  *       - name: authtoken
  *         in: header
  *         description: an authorization token JWT-ouath2
+ *     requestBody:
+ *       required: true
+ *       content: 
+ *         application/json:
+ *           schema:
+ *             $ref: "#/components/schemas/User"
  *     responses:
  *      "200":
  *         description: User Information

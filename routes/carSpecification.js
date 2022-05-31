@@ -23,6 +23,10 @@ const {
  *     summary:  Create specification
  *     tags:
  *       - Specification
+ *     parameters:
+ *       - name: authtoken
+ *         in: header
+ *         description: an authorization token JWT-ouath2
  *     requestBody:
  *       required: true
  *       content: 
@@ -49,6 +53,9 @@ router.post("/specification", authCheck, actionsCheck, validateCreateSpecificati
  *       - Specification
  *     summary: "Show data specification"
  *     parameters:
+ *       - name: authtoken
+ *         in: header
+ *         description: an authorization token JWT-ouath2
  *       - name: "slug"
  *         in: "path"
  *         description: "Show data specification active"
@@ -68,6 +75,9 @@ router.get("/specification/:slug", authCheck, read)
  *       - Specification
  *     summary: "Updated data specification"
  *     parameters:
+ *       - name: authtoken
+ *         in: header
+ *         description: an authorization token JWT-ouath2
  *       - name: "slug"
  *         in: "path"
  *         description: "Updated data specification"
@@ -93,6 +103,9 @@ router.put("/specification/:slug", authCheck, actionsCheck, validateUpdateSpecif
  *       - Specification
  *     summary: "Deleted data specification"
  *     parameters:
+ *       - name: authtoken
+ *         in: header
+ *         description: an authorization token JWT-ouath2
  *       - name: "slug"
  *         in: "path"
  *         description: "Deleted data specification"
@@ -112,6 +125,9 @@ router.delete("specification/:slug", authCheck, adminCheck, remove)
  *       - Specification
  *     summary: "Soft deleted data specification"
  *     parameters:
+ *       - name: authtoken
+ *         in: header
+ *         description: an authorization token JWT-ouath2
  *       - name: "slug"
  *         in: "path"
  *         description: "Soft deleted data specification"
@@ -129,6 +145,10 @@ router.patch("/specification/:slug", authCheck, actionsCheck, removeSoft)
  *   get:
  *     tags:
  *       - Specification
+ *     parameters:
+ *       - name: authtoken
+ *         in: header
+ *         description: an authorization token JWT-ouath2
  *     summary: "Get total number specifications"
  *     responses:
  *       200: 
@@ -143,6 +163,10 @@ router.get("/specifications/total", authCheck, count)
  *     summary:  Show data specifications paginated
  *     tags:
  *       - Specification
+ *     parameters:
+ *       - name: authtoken
+ *         in: header
+ *         description: an authorization token JWT-ouath2
  *     requestBody:
  *       required: true
  *       content: 
@@ -169,6 +193,9 @@ router.post("/specifications", authCheck, pagination)
  *       - Specification
  *     summary: "Show list specifications"
  *     parameters:
+ *       - name: authtoken
+ *         in: header
+ *         description: an authorization token JWT-ouath2
  *       - name: "count"
  *         in: "path"
  *         description: "Show list specifications"

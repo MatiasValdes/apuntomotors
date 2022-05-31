@@ -23,6 +23,10 @@ const {
  *     summary:  Create car
  *     tags:
  *       - Car
+ *     parameters:
+ *       - name: authtoken
+ *         in: header
+ *         description: an authorization token JWT-ouath2 
  *     requestBody:
  *       required: true
  *       content: 
@@ -43,12 +47,15 @@ router.post("/car", authCheck, actionsCheck, validateCreateCar, create)
 
 /**
  * @swagger
- * /cars/{patent}:
+ * /car/{patent}:
  *   get:
  *     tags:
  *       - Car
  *     summary: "Show data car"
  *     parameters:
+ *       - name: authtoken
+ *         in: header
+ *         description: an authorization token JWT-ouath2
  *       - name: "patent"
  *         in: "path"
  *         description: "Show data car active"
@@ -58,7 +65,7 @@ router.post("/car", authCheck, actionsCheck, validateCreateCar, create)
  *       200: 
  *          description: ok   
 */
-router.get("/cars/:patent", authCheck, read)
+router.get("/car/:patent", authCheck, read)
 
 /**
  * @swagger
@@ -68,6 +75,9 @@ router.get("/cars/:patent", authCheck, read)
  *       - Car
  *     summary: "Updated data Car"
  *     parameters:
+ *       - name: authtoken
+ *         in: header
+ *         description: an authorization token JWT-ouath2
  *       - name: "patent"
  *         in: "path"
  *         description: "Updated data Car"
@@ -93,6 +103,9 @@ router.put("/car/:patent", authCheck, actionsCheck, validateUpdateCar, update)
  *       - Car
  *     summary: "Deleted data Car"
  *     parameters:
+ *       - name: authtoken
+ *         in: header
+ *         description: an authorization token JWT-ouath2
  *       - name: "patent"
  *         in: "path"
  *         description: "Deleted data Car"
@@ -112,6 +125,9 @@ router.delete("car/:patent", authCheck, adminCheck, remove)
  *       - Car
  *     summary: "Soft deleted data Car"
  *     parameters:
+ *       - name: authtoken
+ *         in: header
+ *         description: an authorization token JWT-ouath2
  *       - name: "patent"
  *         in: "path"
  *         description: "Soft deleted data Car"
@@ -129,6 +145,10 @@ router.patch("/car/:patent", authCheck, actionsCheck, removeSoft)
  *   get:
  *     tags:
  *       - Car
+ *     parameters:
+ *       - name: authtoken
+ *         in: header
+ *         description: an authorization token JWT-ouath2 
  *     summary: "Get total number cars"
  *     responses:
  *       200: 
@@ -143,6 +163,10 @@ router.get("/cars/total", authCheck, count)
  *     summary:  Show data car paginated
  *     tags:
  *       - Car
+ *     parameters:
+ *       - name: authtoken
+ *         in: header
+ *         description: an authorization token JWT-ouath2 
  *     requestBody:
  *       required: true
  *       content: 
@@ -169,6 +193,9 @@ router.post("/cars", authCheck, pagination)
  *       - Car
  *     summary: "Show list cars"
  *     parameters:
+ *       - name: authtoken
+ *         in: header
+ *         description: an authorization token JWT-ouath2
  *       - name: "count"
  *         in: "path"
  *         description: "Show list cars"

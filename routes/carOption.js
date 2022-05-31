@@ -23,6 +23,10 @@ const {
  *     summary:  Create option
  *     tags:
  *       - Option
+ *     parameters:
+ *       - name: authtoken
+ *         in: header
+ *         description: an authorization token JWT-ouath2
  *     requestBody:
  *       required: true
  *       content: 
@@ -49,6 +53,9 @@ router.post("/option", authCheck, actionsCheck, validateCreateOption, create)
  *       - Option
  *     summary: "Show data option"
  *     parameters:
+ *       - name: authtoken
+ *         in: header
+ *         description: an authorization token JWT-ouath2
  *       - name: "slug"
  *         in: "path"
  *         description: "Show data option active"
@@ -68,6 +75,9 @@ router.get("/option/:slug", authCheck, read)
  *       - Option
  *     summary: "Updated data option"
  *     parameters:
+ *       - name: authtoken
+ *         in: header
+ *         description: an authorization token JWT-ouath2
  *       - name: "slug"
  *         in: "path"
  *         description: "Updated data option"
@@ -93,6 +103,9 @@ router.put("/option/:slug", authCheck, actionsCheck, validateUpdateOption, updat
  *       - Option
  *     summary: "Deleted data option"
  *     parameters:
+ *       - name: authtoken
+ *         in: header
+ *         description: an authorization token JWT-ouath2
  *       - name: "slug"
  *         in: "path"
  *         description: "Deleted data option"
@@ -112,6 +125,9 @@ router.delete("option/:slug", authCheck, adminCheck, remove)
  *       - Option
  *     summary: "Soft deleted data option"
  *     parameters:
+ *       - name: authtoken
+ *         in: header
+ *         description: an authorization token JWT-ouath2
  *       - name: "slug"
  *         in: "path"
  *         description: "Soft deleted data option"
@@ -129,6 +145,10 @@ router.patch("/option/:slug", authCheck, actionsCheck, removeSoft)
  *   get:
  *     tags:
  *       - Option
+ *     parameters:
+ *       - name: authtoken
+ *         in: header
+ *         description: an authorization token JWT-ouath2
  *     summary: "Get total number options"
  *     responses:
  *       200: 
@@ -143,6 +163,10 @@ router.get("/options/total", authCheck, count)
  *     summary:  Show data options paginated
  *     tags:
  *       - Option
+ *     parameters:
+ *       - name: authtoken
+ *         in: header
+ *         description: an authorization token JWT-ouath2
  *     requestBody:
  *       required: true
  *       content: 
@@ -169,6 +193,9 @@ router.post("/options", authCheck, pagination)
  *       - Option
  *     summary: "Show list options"
  *     parameters:
+ *       - name: authtoken
+ *         in: header
+ *         description: an authorization token JWT-ouath2
  *       - name: "count"
  *         in: "path"
  *         description: "Show list options"

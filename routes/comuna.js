@@ -23,6 +23,10 @@ const {
  *     summary:  Create comuna
  *     tags:
  *       - Comuna
+ *     parameters:
+ *       - name: authtoken
+ *         in: header
+ *         description: an authorization token JWT-ouath2
  *     requestBody:
  *       required: true
  *       content: 
@@ -49,6 +53,9 @@ router.post("/comuna", authCheck, actionsCheck, validateCreateComuna, create)
  *       - Comuna
  *     summary: "Show data comuna"
  *     parameters:
+ *       - name: authtoken
+ *         in: header
+ *         description: an authorization token JWT-ouath2
  *       - name: "slug"
  *         in: "path"
  *         description: "Show data comuna active"
@@ -68,6 +75,9 @@ router.get("/comuna/:slug", authCheck, read)
  *       - Comuna
  *     summary: "Updated data comuna"
  *     parameters:
+ *       - name: authtoken
+ *         in: header
+ *         description: an authorization token JWT-ouath2
  *       - name: "slug"
  *         in: "path"
  *         description: "Updated data comuna"
@@ -93,6 +103,9 @@ router.put("/comuna/:slug", authCheck, actionsCheck, validateUpdateComuna, updat
  *       - Comuna
  *     summary: "Deleted data comuna"
  *     parameters:
+ *       - name: authtoken
+ *         in: header
+ *         description: an authorization token JWT-ouath2
  *       - name: "slug"
  *         in: "path"
  *         description: "Deleted data comuna"
@@ -112,6 +125,9 @@ router.delete("comuna/:slug", authCheck, adminCheck, remove)
  *       - Comuna
  *     summary: "Soft deleted data comuna"
  *     parameters:
+ *       - name: authtoken
+ *         in: header
+ *         description: an authorization token JWT-ouath2
  *       - name: "slug"
  *         in: "path"
  *         description: "Soft deleted data comuna"
@@ -129,6 +145,10 @@ router.patch("/comuna/:slug", authCheck, actionsCheck, removeSoft)
  *   get:
  *     tags:
  *       - Comuna
+ *     parameters:
+ *       - name: authtoken
+ *         in: header
+ *         description: an authorization token JWT-ouath2
  *     summary: "Get total number comunas"
  *     responses:
  *       200: 
@@ -143,6 +163,10 @@ router.get("/comunas/total", authCheck, count)
  *     summary:  Show data comunas paginated
  *     tags:
  *       - Comuna
+ *     parameters:
+ *       - name: authtoken
+ *         in: header
+ *         description: an authorization token JWT-ouath2
  *     requestBody:
  *       required: true
  *       content: 
@@ -169,6 +193,9 @@ router.post("/comunas", authCheck, pagination)
  *       - Comuna
  *     summary: "Show list comunas"
  *     parameters:
+ *       - name: authtoken
+ *         in: header
+ *         description: an authorization token JWT-ouath2
  *       - name: "count"
  *         in: "path"
  *         description: "Show list comunas"

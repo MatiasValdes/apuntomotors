@@ -23,6 +23,10 @@ const {
  *     summary:  Create service
  *     tags:
  *       - Service
+ *     parameters:
+ *       - name: authtoken
+ *         in: header
+ *         description: an authorization token JWT-ouath2
  *     requestBody:
  *       required: true
  *       content: 
@@ -49,6 +53,9 @@ router.post("/service", authCheck, actionsCheck, validateCreateService, create)
  *       - Service
  *     summary: "Show data service"
  *     parameters:
+ *       - name: authtoken
+ *         in: header
+ *         description: an authorization token JWT-ouath2
  *       - name: "slug"
  *         in: "path"
  *         description: "Show data service active"
@@ -68,6 +75,9 @@ router.get("/service/:slug", authCheck, read)
  *       - Service
  *     summary: "Updated data service"
  *     parameters:
+ *       - name: authtoken
+ *         in: header
+ *         description: an authorization token JWT-ouath2
  *       - name: "slug"
  *         in: "path"
  *         description: "Updated data service"
@@ -93,6 +103,9 @@ router.put("/service/:slug", authCheck, actionsCheck, validateUpdateService, upd
  *       - Service
  *     summary: "Deleted data service"
  *     parameters:
+ *       - name: authtoken
+ *         in: header
+ *         description: an authorization token JWT-ouath2
  *       - name: "slug"
  *         in: "path"
  *         description: "Deleted data service"
@@ -112,6 +125,9 @@ router.delete("service/:slug", authCheck, adminCheck, remove)
  *       - Service
  *     summary: "Soft deleted data service"
  *     parameters:
+ *       - name: authtoken
+ *         in: header
+ *         description: an authorization token JWT-ouath2
  *       - name: "slug"
  *         in: "path"
  *         description: "Soft deleted data service"
@@ -129,6 +145,10 @@ router.patch("/service/:slug", authCheck, actionsCheck, removeSoft)
  *   get:
  *     tags:
  *       - Service
+ *     parameters:
+ *       - name: authtoken
+ *         in: header
+ *         description: an authorization token JWT-ouath2
  *     summary: "Get total number services"
  *     responses:
  *       200: 
@@ -143,6 +163,10 @@ router.get("/services/total", authCheck, count)
  *     summary:  Show data services paginated
  *     tags:
  *       - Service
+ *     parameters:
+ *       - name: authtoken
+ *         in: header
+ *         description: an authorization token JWT-ouath2
  *     requestBody:
  *       required: true
  *       content: 
@@ -169,6 +193,9 @@ router.post("/services", authCheck, pagination)
  *       - Service
  *     summary: "Show list services"
  *     parameters:
+ *       - name: authtoken
+ *         in: header
+ *         description: an authorization token JWT-ouath2
  *       - name: "count"
  *         in: "path"
  *         description: "Show list services"

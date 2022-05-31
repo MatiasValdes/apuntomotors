@@ -23,6 +23,10 @@ const {
  *     summary:  Create generation
  *     tags:
  *       - Generation
+ *     parameters:
+ *       - name: authtoken
+ *         in: header
+ *         description: an authorization token JWT-ouath2
  *     requestBody:
  *       required: true
  *       content: 
@@ -49,6 +53,9 @@ router.post("/generation", authCheck, actionsCheck, validateCreateGeneration, cr
  *       - Generation
  *     summary: "Show data generation"
  *     parameters:
+ *       - name: authtoken
+ *         in: header
+ *         description: an authorization token JWT-ouath2
  *       - name: "id"
  *         in: "path"
  *         description: "Show data generation active"
@@ -68,6 +75,9 @@ router.get("/generation/:id", authCheck, read)
  *       - Generation
  *     summary: "Updated data generation"
  *     parameters:
+ *       - name: authtoken
+ *         in: header
+ *         description: an authorization token JWT-ouath2
  *       - name: "id"
  *         in: "path"
  *         description: "Updated data generation"
@@ -93,6 +103,9 @@ router.put("/generation/:id", authCheck, actionsCheck, validateUpdateGeneration,
  *       - Generation
  *     summary: "Deleted data generation"
  *     parameters:
+ *       - name: authtoken
+ *         in: header
+ *         description: an authorization token JWT-ouath2
  *       - name: "id"
  *         in: "path"
  *         description: "Deleted data generation"
@@ -112,6 +125,9 @@ router.delete("generation/:id", authCheck, adminCheck, remove)
  *       - Generation
  *     summary: "Soft deleted data generation"
  *     parameters:
+ *       - name: authtoken
+ *         in: header
+ *         description: an authorization token JWT-ouath2
  *       - name: "id"
  *         in: "path"
  *         description: "Soft deleted data generation"
@@ -129,6 +145,13 @@ router.patch("/generation/:id", authCheck, actionsCheck, removeSoft)
  *   get:
  *     tags:
  *       - Generation
+ *     parameters:
+ *       - name: authtoken
+ *         in: header
+ *         description: an authorization token JWT-ouath2
+ *       - name: authtoken
+ *         in: header
+ *         description: an authorization token JWT-ouath2
  *     summary: "Get total number generations"
  *     responses:
  *       200: 
@@ -143,6 +166,10 @@ router.get("/generations/total", authCheck, count)
  *     summary:  Show data generation paginated
  *     tags:
  *       - Generation
+ *     parameters:
+ *       - name: authtoken
+ *         in: header
+ *         description: an authorization token JWT-ouath2
  *     requestBody:
  *       required: true
  *       content: 
@@ -169,6 +196,9 @@ router.post("/generations", authCheck, pagination)
  *       - Generation
  *     summary: "Show list generations"
  *     parameters:
+ *       - name: authtoken
+ *         in: header
+ *         description: an authorization token JWT-ouath2
  *       - name: "count"
  *         in: "path"
  *         description: "Show list generations"

@@ -23,6 +23,10 @@ const {
  *     summary:  Create equipment
  *     tags:
  *       - Equipment
+ *     parameters:
+ *       - name: authtoken
+ *         in: header
+ *         description: an authorization token JWT-ouath2
  *     requestBody:
  *       required: true
  *       content: 
@@ -49,6 +53,9 @@ router.post("/equipment", authCheck, actionsCheck, validateCreateEquipment, crea
  *       - Equipment
  *     summary: "Show data equipment"
  *     parameters:
+ *       - name: authtoken
+ *         in: header
+ *         description: an authorization token JWT-ouath2
  *       - name: "slug"
  *         in: "path"
  *         description: "Show data equipment active"
@@ -68,6 +75,9 @@ router.get("/equipment/:slug", authCheck, read)
  *       - Equipment
  *     summary: "Updated data equipment"
  *     parameters:
+ *       - name: authtoken
+ *         in: header
+ *         description: an authorization token JWT-ouath2
  *       - name: "slug"
  *         in: "path"
  *         description: "Updated data equipment"
@@ -93,6 +103,9 @@ router.put("/equipment/:slug", authCheck, actionsCheck, validateUpdateEquipment,
  *       - Equipment
  *     summary: "Deleted data equipment"
  *     parameters:
+ *       - name: authtoken
+ *         in: header
+ *         description: an authorization token JWT-ouath2
  *       - name: "slug"
  *         in: "path"
  *         description: "Deleted data equipment"
@@ -112,7 +125,10 @@ router.delete("equipment/:slug", authCheck, adminCheck, remove)
  *       - Equipment
  *     summary: "Soft deleted data equipment"
  *     parameters:
- *       - name: "patent"
+ *       - name: authtoken
+ *         in: header
+ *         description: an authorization token JWT-ouath2
+ *       - name: "slug"
  *         in: "path"
  *         description: "Soft deleted data equipment"
  *         required: true
@@ -129,6 +145,10 @@ router.patch("/equipment/:slug", authCheck, actionsCheck, removeSoft)
  *   get:
  *     tags:
  *       - Equipment
+ *     parameters:
+ *       - name: authtoken
+ *         in: header
+ *         description: an authorization token JWT-ouath2
  *     summary: "Get total number equipments"
  *     responses:
  *       200: 
@@ -143,6 +163,10 @@ router.get("/equipments/total", authCheck, count)
  *     summary:  Show data equipment paginated
  *     tags:
  *       - Equipment
+ *     parameters:
+ *       - name: authtoken
+ *         in: header
+ *         description: an authorization token JWT-ouath2
  *     requestBody:
  *       required: true
  *       content: 
@@ -169,6 +193,9 @@ router.post("/equipments", authCheck, pagination)
  *       - Equipment
  *     summary: "Show list equipments"
  *     parameters:
+ *       - name: authtoken
+ *         in: header
+ *         description: an authorization token JWT-ouath2
  *       - name: "count"
  *         in: "path"
  *         description: "Show list equipments"

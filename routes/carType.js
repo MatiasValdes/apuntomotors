@@ -14,6 +14,10 @@ const {create, read, update, removeSoft, remove, pagination, list} = require("..
  *     summary:  Create type
  *     tags:
  *       - CarType
+ *     parameters:
+ *       - name: authtoken
+ *         in: header
+ *         description: an authorization token JWT-ouath2
  *     requestBody:
  *       required: true
  *       content: 
@@ -40,6 +44,9 @@ router.post("/carType", authCheck, adminCheck, validateCreateType, create)
  *       - CarType
  *     summary: "Show data type"
  *     parameters:
+ *       - name: authtoken
+ *         in: header
+ *         description: an authorization token JWT-ouath2
  *       - name: "slug"
  *         in: "path"
  *         description: "Show data type active"
@@ -59,6 +66,9 @@ router.get("/carType/:slug", read)
  *       - CarType
  *     summary: "Updated data type"
  *     parameters:
+ *       - name: authtoken
+ *         in: header
+ *         description: an authorization token JWT-ouath2
  *       - name: "slug"
  *         in: "path"
  *         description: "Updated data type"
@@ -84,6 +94,9 @@ router.put("/carType/:slug", authCheck, adminCheck, validateUpdateType, update)
  *       - CarType
  *     summary: "Soft deleted data type"
  *     parameters:
+ *       - name: authtoken
+ *         in: header
+ *         description: an authorization token JWT-ouath2
  *       - name: "slug"
  *         in: "path"
  *         description: "Soft deleted data type"
@@ -103,6 +116,9 @@ router.patch("/carType/:slug", authCheck, adminCheck, removeSoft)
  *       - CarType
  *     summary: "Deleted data type"
  *     parameters:
+ *       - name: authtoken
+ *         in: header
+ *         description: an authorization token JWT-ouath2
  *       - name: "slug"
  *         in: "path"
  *         description: "Deleted data type"
@@ -120,6 +136,10 @@ router.delete("/carType/:slug", authCheck, adminCheck, remove)
  *   get:
  *     tags:
  *       - CarType
+ *     parameters:
+ *       - name: authtoken
+ *         in: header
+ *         description: an authorization token JWT-ouath2
  *     summary: "Get total number type"
  *     responses:
  *       200: 
@@ -135,6 +155,9 @@ router.post("/carTypes", authCheck, pagination)
  *       - CarType
  *     summary: "Show list types"
  *     parameters:
+ *       - name: authtoken
+ *         in: header
+ *         description: an authorization token JWT-ouath2
  *       - name: "count"
  *         in: "path"
  *         description: "Show list types"

@@ -23,6 +23,10 @@ const {
  *     summary:  Create model
  *     tags:
  *       - Model
+ *     parameters:
+ *       - name: authtoken
+ *         in: header
+ *         description: an authorization token JWT-ouath2
  *     requestBody:
  *       required: true
  *       content: 
@@ -49,6 +53,9 @@ router.post("/model", authCheck, actionsCheck, validateCreateModel, create)
  *       - Model
  *     summary: "Show data model"
  *     parameters:
+ *       - name: authtoken
+ *         in: header
+ *         description: an authorization token JWT-ouath2
  *       - name: "slug"
  *         in: "path"
  *         description: "Show data model active"
@@ -68,6 +75,9 @@ router.get("/model/:slug", authCheck, read)
  *       - Model
  *     summary: "Updated data model"
  *     parameters:
+ *       - name: authtoken
+ *         in: header
+ *         description: an authorization token JWT-ouath2
  *       - name: "slug"
  *         in: "path"
  *         description: "Updated data model"
@@ -93,6 +103,9 @@ router.put("/model/:slug", authCheck, actionsCheck, validateUpdateModel, update)
  *       - Model
  *     summary: "Deleted data model"
  *     parameters:
+ *       - name: authtoken
+ *         in: header
+ *         description: an authorization token JWT-ouath2
  *       - name: "slug"
  *         in: "path"
  *         description: "Deleted data model"
@@ -112,6 +125,9 @@ router.delete("model/:slug", authCheck, adminCheck, remove)
  *       - Model
  *     summary: "Soft deleted data model"
  *     parameters:
+ *       - name: authtoken
+ *         in: header
+ *         description: an authorization token JWT-ouath2
  *       - name: "slug"
  *         in: "path"
  *         description: "Soft deleted data model"
@@ -129,6 +145,10 @@ router.patch("/model/:slug", authCheck, actionsCheck, removeSoft)
  *   get:
  *     tags:
  *       - Model
+ *     parameters:
+ *       - name: authtoken
+ *         in: header
+ *         description: an authorization token JWT-ouath2
  *     summary: "Get total number models"
  *     responses:
  *       200: 
@@ -143,6 +163,10 @@ router.get("/models/total", authCheck, count)
  *     summary:  Show data models paginated
  *     tags:
  *       - Model
+ *     parameters:
+ *       - name: authtoken
+ *         in: header
+ *         description: an authorization token JWT-ouath2
  *     requestBody:
  *       required: true
  *       content: 
@@ -169,6 +193,9 @@ router.post("/models", authCheck, pagination)
  *       - Model
  *     summary: "Show list models"
  *     parameters:
+ *       - name: authtoken
+ *         in: header
+ *         description: an authorization token JWT-ouath2
  *       - name: "count"
  *         in: "path"
  *         description: "Show list models"

@@ -23,6 +23,10 @@ const {
  *     summary:  Create order
  *     tags:
  *       - Order
+ *     parameters:
+ *       - name: authtoken
+ *         in: header
+ *         description: an authorization token JWT-ouath2
  *     requestBody:
  *       required: true
  *       content: 
@@ -49,6 +53,9 @@ router.post("/order", authCheck, actionsCheck, validateCreateOrder, create)
  *       - Order
  *     summary: "Show data order"
  *     parameters:
+ *       - name: authtoken
+ *         in: header
+ *         description: an authorization token JWT-ouath2
  *       - name: "id"
  *         in: "path"
  *         description: "Show data order active"
@@ -68,6 +75,9 @@ router.get("/order/:id", authCheck, read)
  *       - Order
  *     summary: "Updated data order"
  *     parameters:
+ *       - name: authtoken
+ *         in: header
+ *         description: an authorization token JWT-ouath2
  *       - name: "id"
  *         in: "path"
  *         description: "Updated data order"
@@ -93,6 +103,9 @@ router.put("/order/:id", authCheck, actionsCheck, validateUpdateOrder, update)
  *       - Order
  *     summary: "Deleted data order"
  *     parameters:
+ *       - name: authtoken
+ *         in: header
+ *         description: an authorization token JWT-ouath2
  *       - name: "id"
  *         in: "path"
  *         description: "Deleted data order"
@@ -112,6 +125,9 @@ router.delete("order/:id", authCheck, adminCheck, remove)
  *       - Order
  *     summary: "Soft deleted data order"
  *     parameters:
+ *       - name: authtoken
+ *         in: header
+ *         description: an authorization token JWT-ouath2
  *       - name: "id"
  *         in: "path"
  *         description: "Soft deleted data order"
@@ -129,6 +145,10 @@ router.patch("/order/:id", authCheck, actionsCheck, removeSoft)
  *   get:
  *     tags:
  *       - Order
+ *     parameters:
+ *       - name: authtoken
+ *         in: header
+ *         description: an authorization token JWT-ouath2
  *     summary: "Get total number orders"
  *     responses:
  *       200: 
@@ -143,6 +163,10 @@ router.get("/orders/total", authCheck, count)
  *     summary:  Show data orders paginated
  *     tags:
  *       - Order
+ *     parameters:
+ *       - name: authtoken
+ *         in: header
+ *         description: an authorization token JWT-ouath2
  *     requestBody:
  *       required: true
  *       content: 
@@ -169,6 +193,9 @@ router.post("/orders", authCheck, pagination)
  *       - Order
  *     summary: "Show list orders"
  *     parameters:
+ *       - name: authtoken
+ *         in: header
+ *         description: an authorization token JWT-ouath2
  *       - name: "count"
  *         in: "path"
  *         description: "Show list orders"

@@ -14,6 +14,10 @@ const { create, read, update, remove, removeSoft, count, pagination, list } = re
  *     summary:  Create make
  *     tags:
  *       - Make
+ *     parameters:
+ *       - name: authtoken
+ *         in: header
+ *         description: an authorization token JWT-ouath2
  *     requestBody:
  *       required: true
  *       content: 
@@ -40,6 +44,9 @@ router.post("/make", authCheck, adminCheck, validateCreateMake, create)
  *       - Make
  *     summary: "Show data make"
  *     parameters:
+ *       - name: authtoken
+ *         in: header
+ *         description: an authorization token JWT-ouath2
  *       - name: "slug"
  *         in: "path"
  *         description: "Show data make active"
@@ -59,6 +66,9 @@ router.get("/make/:slug", read)
  *       - Make
  *     summary: "Updated data make"
  *     parameters:
+ *       - name: authtoken
+ *         in: header
+ *         description: an authorization token JWT-ouath2
  *       - name: "slug"
  *         in: "path"
  *         description: "Updated data make"
@@ -84,6 +94,9 @@ router.put("/make/:slug", authCheck, adminCheck, validateUpdateMake, update)
  *       - Make
  *     summary: "Deleted data make"
  *     parameters:
+ *       - name: authtoken
+ *         in: header
+ *         description: an authorization token JWT-ouath2
  *       - name: "slug"
  *         in: "path"
  *         description: "Deleted data make"
@@ -103,6 +116,9 @@ router.delete("/make/:slug", authCheck, adminCheck, remove)
  *       - Make
  *     summary: "Soft deleted data make"
  *     parameters:
+ *       - name: authtoken
+ *         in: header
+ *         description: an authorization token JWT-ouath2
  *       - name: "slug"
  *         in: "path"
  *         description: "Soft deleted data make"
@@ -120,6 +136,10 @@ router.patch("/make/:slug", authCheck, adminCheck, removeSoft)
  *   get:
  *     tags:
  *       - Make
+ *     parameters:
+ *       - name: authtoken
+ *         in: header
+ *         description: an authorization token JWT-ouath2
  *     summary: "Get total number makes"
  *     responses:
  *       200: 
@@ -134,6 +154,10 @@ router.get("/makes/total", count)
  *     summary:  Show data makes paginated
  *     tags:
  *       - Make
+ *     parameters:
+ *       - name: authtoken
+ *         in: header
+ *         description: an authorization token JWT-ouath2
  *     requestBody:
  *       required: true
  *       content: 
@@ -160,6 +184,9 @@ router.post("/makes", pagination)
  *       - Make
  *     summary: "Show list makes"
  *     parameters:
+ *       - name: authtoken
+ *         in: header
+ *         description: an authorization token JWT-ouath2
  *       - name: "count"
  *         in: "path"
  *         description: "Show list makes"

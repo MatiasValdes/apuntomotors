@@ -23,6 +23,10 @@ const {
  *     summary:  Create region
  *     tags:
  *       - Region
+ *     parameters:
+ *       - name: authtoken
+ *         in: header
+ *         description: an authorization token JWT-ouath2
  *     requestBody:
  *       required: true
  *       content: 
@@ -49,6 +53,9 @@ router.post("/region", authCheck, actionsCheck, validateCreateRegion, create)
  *       - Region
  *     summary: "Show data region"
  *     parameters:
+ *       - name: authtoken
+ *         in: header
+ *         description: an authorization token JWT-ouath2
  *       - name: "slug"
  *         in: "path"
  *         description: "Show data region active"
@@ -68,6 +75,9 @@ router.get("/region/:slug", authCheck, read)
  *       - Region
  *     summary: "Updated data region"
  *     parameters:
+ *       - name: authtoken
+ *         in: header
+ *         description: an authorization token JWT-ouath2
  *       - name: "slug"
  *         in: "path"
  *         description: "Updated data region"
@@ -93,6 +103,9 @@ router.put("/region/:slug", authCheck, actionsCheck, validateUpdateRegion, updat
  *       - Region
  *     summary: "Deleted data region"
  *     parameters:
+ *       - name: authtoken
+ *         in: header
+ *         description: an authorization token JWT-ouath2
  *       - name: "slug"
  *         in: "path"
  *         description: "Deleted data region"
@@ -112,6 +125,9 @@ router.delete("region/:slug", authCheck, adminCheck, remove)
  *       - Region
  *     summary: "Soft deleted data region"
  *     parameters:
+ *       - name: authtoken
+ *         in: header
+ *         description: an authorization token JWT-ouath2
  *       - name: "slug"
  *         in: "path"
  *         description: "Soft deleted data region"
@@ -129,6 +145,10 @@ router.patch("/region/:slug", authCheck, actionsCheck, removeSoft)
  *   get:
  *     tags:
  *       - Region
+ *     parameters:
+ *       - name: authtoken
+ *         in: header
+ *         description: an authorization token JWT-ouath2 
  *     summary: "Get total number regions"
  *     responses:
  *       200: 
@@ -143,6 +163,10 @@ router.get("/regions/total", authCheck, count)
  *     summary:  Show data regions paginated
  *     tags:
  *       - Region
+ *     parameters:
+ *       - name: authtoken
+ *         in: header
+ *         description: an authorization token JWT-ouath2
  *     requestBody:
  *       required: true
  *       content: 
@@ -169,6 +193,9 @@ router.post("/regions", authCheck, pagination)
  *       - Region
  *     summary: "Show list regions"
  *     parameters:
+ *       - name: authtoken
+ *         in: header
+ *         description: an authorization token JWT-ouath2
  *       - name: "count"
  *         in: "path"
  *         description: "Show list regions"
