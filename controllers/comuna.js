@@ -3,8 +3,8 @@ const slugify = require("slugify")
 
 exports.create = async (req, res) => {
     try {
-        const { name } = req.body
-        res.json(await new Comuna({ name, slug: slugify(name) }).save())
+        const { name, region } = req.body
+        res.json(await new Comuna({ name, slug: slugify(name), region }).save())
     }
     catch (err) {
         res.status(400).send("Comuna create failed")
